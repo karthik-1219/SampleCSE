@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-field:focus {
+            border-color: #007BFF;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Student Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" class="input-field" placeholder="Enter your username" required>
+            <input type="password" id="password" class="input-field" placeholder="Enter your password" required>
+            <button type="button" class="btn" onclick="login()">Login</button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+    </div>
+
+    <script>
+        function login() {
+           
+            document.getElementById('error-message').innerText = '';
+
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            
+            if (username === "" || password === "") {
+                document.getElementById('error-message').innerText = "Please fill out both fields.";
+                return;
+            }
+
+           
+            const validUsername = "student";
+            const validPassword = "password123";
+
+            
+            if (username === validUsername && password === validPassword) {
+                alert("Login successful!");
+                
+                window.location.href = "student-dashboard.html";  
+            } else {
+                document.getElementById('error-message').innerText = "Invalid username or password.";
+            }
+        }
+    </script>
+
+</body>
+</html>
